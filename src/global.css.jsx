@@ -28,6 +28,20 @@ export default createGlobalStyle`
     margin-left: 0 !important;
   }
 
+  .swiper {
+    overflow: visible;
+  }
+
+  .swiper-pagination {
+    bottom: -9% !important;
+  }
+
+  .swiper-pagination > span {
+    width: 40px;
+    height: 10px;
+    border-radius: 30px;
+  }
+
   /* Animation keyframes */
   @keyframes fadeInRight {
     0% {
