@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { TitleFont } from "../../constants/fonts";
 import { BLUE } from "../../constants/colors";
-import { mobile, ipad, laptop, desktops } from "../../responsive";
+import { laptop } from "../../responsive";
 
 const AboutContainer = styled.div`
   padding-bottom: 100px;
