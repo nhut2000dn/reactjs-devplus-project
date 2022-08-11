@@ -1,10 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  * {
-    @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900");
-  }
-
   html,
   body {
     font-family: "Rubik", sans-serif;

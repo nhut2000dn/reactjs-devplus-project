@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { TitleFont } from "../../constants/fonts";
 import img from '../../assets/images/devplus_missions.png';
+import { mobile, ipad, laptop, desktops } from "../../responsive";
 
 const BannerContainer = styled.div`
   padding: 125px 0 425px;
@@ -27,7 +28,18 @@ const BannerTitle = styled.h1`
   margin-bottom: 16px;
   text-transform: capitalize;
   font-weight: 700;
-  font-family: "Nunito", sans-serif;
+  font-family: ${TitleFont};
+  ${desktops({
+    fontSize: '45px'
+  })}
+
+  ${ipad({
+    fontSize: '35px'
+  })}
+
+  ${mobile({
+    fontSize: '30px'
+  })}
 `;
 
 const BannerDesc = styled.p`
