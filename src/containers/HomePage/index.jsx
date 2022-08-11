@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import Banner from '../../components/Banner'
 import About from '../../components/About'
 import Preloader from '../../components/Preloader'
+import ScrollUp from '../../components/ScrollUp'
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
       <Header/>
       <Banner/>
       <About/>
+      <ScrollUp/>
     </div>
   )
 }
