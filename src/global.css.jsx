@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   * {
@@ -29,6 +29,7 @@ export default createGlobalStyle`
   img {
     max-width: 100%;
     height: auto;
+    margin-left: 0 !important;
   }
 
   /* Animation keyframes */
@@ -100,4 +101,4 @@ export default createGlobalStyle`
       transform: translate(-50%, -50%) rotate(360deg);
     }
   }
-` 
+`;
