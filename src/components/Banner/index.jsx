@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { TitleFont } from "../../constants/fonts";
 import img from '../../assets/images/devplus_missions.png';
-import { mobile, ipad, laptop, desktops } from "../../responsive";
+import { mobile, ipad, desktops } from "../../responsive";
 
 const BannerContainer = styled.div`
   padding: 125px 0 425px;
