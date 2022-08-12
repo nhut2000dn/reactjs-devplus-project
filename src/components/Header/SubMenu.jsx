@@ -7,7 +7,7 @@ const Menu = styled.ul`
   position: absolute;
   width: 300px;
   left: 0;
-  top: 100%;
+  top: 110%;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);

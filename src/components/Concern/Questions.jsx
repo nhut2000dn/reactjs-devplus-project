@@ -23,6 +23,7 @@ const AccordionHeaderStyled = styled(Accordion.Header)`
     border: none;
     outline: none;
     font-weight: 600;
+    box-shadow: 0 0 49px 0 rgba(0, 0, 0, 0.08);
 
     &:focus {
       border: none;
