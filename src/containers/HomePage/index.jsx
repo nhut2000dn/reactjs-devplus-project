@@ -6,6 +6,8 @@ import Testimonial from '../../components/Testimonial';
 import Preloader from '../../components/Preloader';
 import ScrollUp from '../../components/ScrollUp';
 import Skill from '../../components/Skill';
+import Campus from '../../components/Campus';
+import Admission from '../../components/Admission';
 
 const HomePage = () => {
 	return (
@@ -15,6 +17,8 @@ const HomePage = () => {
 			<Banner />
 			<About />
 			<Skill />
+			<Campus />
+			<Admission />
 			<Testimonial />
 			<ScrollUp />
 		</div>

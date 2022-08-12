@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-import { TitleFont } from "../../constants/fonts";
 import ImageQuote from '../../assets/images/quote.png';
 import ImageAuthor1 from '../../assets/images/person1.png';
 import ImageAuthor2 from '../../assets/images/person2.png';
 import ImageAuthor3 from '../../assets/images/person3.png';
-import { mobile, ipad, desktops } from "../../responsive";
-import SwiperCore, { EffectCoverflow, Pagination, Navigation, Scrollbar, A11y, Autoplay } from "swiper";
+import { Pagination, Navigation, Scrollbar, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "swiper/css";
