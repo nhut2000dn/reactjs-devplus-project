@@ -1,11 +1,12 @@
 import React from "react";
 import Gallery from "react-grid-gallery";
-import person1 from "../../assets/images/gallery1.png";
-import person2 from "../../assets/images/gallery2.png";
-import person3 from "../../assets/images/gallery3.png";
-import person4 from "../../assets/images/gallery4.png";
-import person5 from "../../assets/images/gallery5.png";
-import person6 from "../../assets/images/gallery6.png";
+import LazyLoad from "react-lazyload";
+import person1 from "../../assets/images/gallery1.webp";
+import person2 from "../../assets/images/gallery2.webp";
+import person3 from "../../assets/images/gallery3.webp";
+import person4 from "../../assets/images/gallery4.webp";
+import person5 from "../../assets/images/gallery5.webp";
+import person6 from "../../assets/images/gallery6.webp";
 
 const ImageGallery = () => {
   const IMAGES = [
@@ -47,7 +48,11 @@ const ImageGallery = () => {
     },
   ];
 
-  return <Gallery rowHeight={140} margin={4} images={IMAGES} />;
+  return (
+    <LazyLoad>
+      <Gallery rowHeight={140} margin={4} images={IMAGES} />
+    </LazyLoad>
+  );
 };
 
 export default ImageGallery;

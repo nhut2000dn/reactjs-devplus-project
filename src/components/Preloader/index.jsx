@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import img from '../../assets/images/logo_loading.png';
+import img from "../../assets/images/logo_loading.webp";
 import { BLUE } from "../../constants/colors";
 
 const Loader = styled.div`
@@ -52,9 +52,7 @@ const Image = styled.img`
   animation: loaderPulse alternate 900ms infinite;
 `;
 
-
 const Preloader = () => {
-
   const [show, setShow] = useState(true);
 
   useEffect(() => {
@@ -63,26 +61,27 @@ const Preloader = () => {
       timeout = setTimeout(() => {
         setShow(false);
       }, 2000);
-    } 
+    }
     return () => clearTimeout(timeout);
   }, [show]);
 
   return (
     <>
       <div>
-        { show
-          ? <Loader>
-              <LoaderContainer>
-                <LoaderIcon>
-                  <Image src={img} />
-                </LoaderIcon>
-              </LoaderContainer>
-            </Loader> : <div></div>
-        }
+        {show ? (
+          <Loader>
+            <LoaderContainer>
+              <LoaderIcon>
+                <Image loading="lazy" alt="Preloader" src={img} />
+              </LoaderIcon>
+            </LoaderContainer>
+          </Loader>
+        ) : (
+          <div></div>
+        )}
       </div>
     </>
   );
 };
 
 export default Preloader;
-
