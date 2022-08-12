@@ -16,9 +16,7 @@ const HomePage = () => {
   return (
     <div>
       <Preloader />
-      <LazyLoad>
-        <Header />
-      </LazyLoad>
+      <Header />
       <LazyLoad height={200} offset={[-100, 100]}>
         <Banner />
       </LazyLoad>
