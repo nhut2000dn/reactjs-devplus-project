@@ -8,6 +8,7 @@ import ScrollUp from '../../components/ScrollUp';
 import Skill from '../../components/Skill';
 import Campus from '../../components/Campus';
 import Admission from '../../components/Admission';
+import Footer from '../../components/Footer';
 
 const HomePage = () => {
 	return (
@@ -21,6 +22,7 @@ const HomePage = () => {
 			<Admission />
 			<Testimonial />
 			<ScrollUp />
+			<Footer />
 		</div>
 	);
 };
