@@ -1,21 +1,16 @@
 import styled from "styled-components";
-import { css } from "styled-components";
 import { useEffect, useState } from "react";
 import img from '../../assets/images/logo_loading.png';
 import { BLUE } from "../../constants/colors";
 
 const Loader = styled.div`
-  ${({ open }) =>
-    css`
-      background-color: #fff;
-      height: 100%;
-      width: 100%;
-      position: fixed;
-      margin-top: 0px;
-      top: 0px;
-      z-index: 10000;
-      display: ${ open ? 'block' : 'none' }
-    `}
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  margin-top: 0px;
+  top: 0px;
+  z-index: 10000;
 `;
 
 const LoaderContainer = styled.div`
@@ -51,9 +46,7 @@ const LoaderIcon = styled.div`
   width: 80px;
 `;
 
-const Image = styled.img.attrs({
-  src: `${img}`,
-})`
+const Image = styled.img`
   max-width: 100%;
   height: auto;
   animation: loaderPulse alternate 900ms infinite;
@@ -77,13 +70,15 @@ const Preloader = () => {
   return (
     <>
       <div>
-        <Loader open={show}>
-          <LoaderContainer>
-            <LoaderIcon>
-              <Image />
-            </LoaderIcon>
-          </LoaderContainer>
-        </Loader>
+        { show
+          ? <Loader>
+              <LoaderContainer>
+                <LoaderIcon>
+                  <Image src={img} />
+                </LoaderIcon>
+              </LoaderContainer>
+            </Loader> : <div></div>
+        }
       </div>
     </>
   );

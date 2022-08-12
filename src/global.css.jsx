@@ -29,7 +29,7 @@ export default createGlobalStyle`
   }
 
   .swiper {
-    overflow: visible;
+    overflow: visible !important;;
   }
 
   .swiper-pagination {

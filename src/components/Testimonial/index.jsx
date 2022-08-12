@@ -5,6 +5,7 @@ import ImageAuthor1 from '../../assets/images/person1.png';
 import ImageAuthor2 from '../../assets/images/person2.png';
 import ImageAuthor3 from '../../assets/images/person3.png';
 import { Pagination, Navigation, Scrollbar, A11y, Autoplay } from "swiper";
+import { mobile } from "../../responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "swiper/css";
@@ -14,12 +15,15 @@ const TestimonialWrapper = styled.div`
   padding: 100px 0 350px;
   margin: 0 100px;
   overflow: hidden;
+  ${mobile({
+    margin: '0 10px'
+  })}
 `;
 
 const TestimonialContainer = styled.div`
-  height: 700px;
   padding: 0;
   border-radius: 5px; 
+  height: max-content;
 `;
 
 const TestimonialHeading = styled.h2`
@@ -64,6 +68,9 @@ const SwiperInfo = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  ${mobile({
+    height: 'max-content'
+  })}
 `;
 
 const SwiperImageWrapper = styled.div`
@@ -86,6 +93,9 @@ const SwiperDescContent = styled.p`
   font-weight: 500;
   font-style: italic;
   color: #505050;
+  ${mobile({
+    padding: '43% 40px 57px'
+  })}
 `;
 
 const SwiperWrapperImageAuthor = styled.div`
