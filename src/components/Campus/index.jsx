@@ -24,7 +24,7 @@ const CampusCard = styled.div`
 `;
 
 const CampusInfo = styled.div`
-  border: 1px solid #f3f8f9;
+  border: 1px solid #dfe9eb;
   padding: 30px;
   border-radius: 5px;
 `;
