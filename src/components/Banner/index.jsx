@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { TitleFont } from "../../constants/fonts";
-import img from '../../assets/images/devplus_missions.png';
+import img from "../../assets/images/devplus_missions.webp";
 import { mobile, ipad, desktops } from "../../responsive";
 
 const BannerContainer = styled.div`
@@ -29,16 +29,17 @@ const BannerTitle = styled.h1`
   text-transform: capitalize;
   font-weight: 700;
   font-family: ${TitleFont};
+  font-display: swap;
   ${desktops({
-    fontSize: '45px'
+    fontSize: "45px",
   })}
 
   ${ipad({
-    fontSize: '35px'
+    fontSize: "35px",
   })}
 
   ${mobile({
-    fontSize: '30px'
+    fontSize: "30px",
   })}
 `;
 
@@ -92,13 +93,13 @@ const Banner = () => {
       <Container className="container">
         <BannerContent className="text-center">
           <BannerTitle>
-              Devplus will support the early stage developers go the right
-							career path
+            Devplus will support the early stage developers go the right career
+            path
           </BannerTitle>
           <BannerDesc>
-              Devplus is not a training center, it’s battle campus for you to
-							level up your skillsets and ready to onboard any projects in our
-							“kindest” companies listing
+            Devplus is not a training center, it’s battle campus for you to
+            level up your skillsets and ready to onboard any projects in our
+            “kindest” companies listing
           </BannerDesc>
           <BannerButtonWrap>
             <BannerButton>Learn more</BannerButton>
@@ -110,4 +111,3 @@ const Banner = () => {
 };
 
 export default Banner;
-

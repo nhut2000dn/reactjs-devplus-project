@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import ImageQuote from '../../assets/images/quote.png';
-import ImageAuthor1 from '../../assets/images/person1.png';
-import ImageAuthor2 from '../../assets/images/person2.png';
-import ImageAuthor3 from '../../assets/images/person3.png';
+import ImageQuote from "../../assets/images/quote.webp";
+import ImageAuthor1 from "../../assets/images/person1.webp";
+import ImageAuthor2 from "../../assets/images/person2.webp";
+import ImageAuthor3 from "../../assets/images/person3.webp";
 import { Pagination, Navigation, Scrollbar, A11y, Autoplay } from "swiper";
 import { mobile } from "../../responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,13 +16,13 @@ const TestimonialWrapper = styled.div`
   margin: 0 100px;
   overflow: hidden;
   ${mobile({
-    margin: '0 10px'
+    margin: "0 10px",
   })}
 `;
 
 const TestimonialContainer = styled.div`
   padding: 0;
-  border-radius: 5px; 
+  border-radius: 5px;
   height: max-content;
 `;
 
@@ -69,15 +69,14 @@ const SwiperInfo = styled.div`
   justify-content: center;
   text-align: center;
   ${mobile({
-    height: 'max-content'
+    height: "max-content",
   })}
 `;
 
-const SwiperImageWrapper = styled.div`
-`;
+const SwiperImageWrapper = styled.div``;
 
 const SwiperImage = styled.img.attrs({
-  src: `${ImageQuote}`
+  src: `${ImageQuote}`,
 })`
   width: 64px;
   position: absolute;
@@ -94,7 +93,7 @@ const SwiperDescContent = styled.p`
   font-style: italic;
   color: #505050;
   ${mobile({
-    padding: '43% 40px 57px'
+    padding: "43% 40px 57px",
   })}
 `;
 
@@ -105,12 +104,11 @@ const SwiperWrapperImageAuthor = styled.div`
   bottom: -30px;
 `;
 
-const SwiperImageAuthor = styled.img.attrs(props => ({
+const SwiperImageAuthor = styled.img.attrs((props) => ({
   src: `${props.url}`,
 }))`
   border-radius: 50%;
-`
-
+`;
 
 const SwiperAuthor = styled.div`
   text-align: center;
@@ -139,8 +137,8 @@ const Banner = () => {
           spaceBetween={30}
           loop={true}
           autoplay={{
-            delay: 2500,  
-            disableOnInteraction: false
+            delay: 2500,
+            disableOnInteraction: false,
           }}
           pagination={{ clickable: true }}
           breakpoints={{
@@ -149,7 +147,6 @@ const Banner = () => {
               spaceBetween: 30,
             },
           }}
-          onSwiper={(swiper) => console.log(swiper)}
         >
           <SwiperWrapperAll>
             <SwiperSlide>
@@ -157,14 +154,14 @@ const Banner = () => {
                 <SwiperDesc>
                   <SwiperInfo>
                     <SwiperImageWrapper>
-                      <SwiperImage/>
+                      <SwiperImage />
                     </SwiperImageWrapper>
                     <SwiperDescContent>
-                        Dev plus help me to re-train about knowledge with
-                        technology, experience how to do the real project with
-                        senior developers by testing their current project, and
-                        share more experience with them. enjoy more events and
-                        workshops.
+                      Dev plus help me to re-train about knowledge with
+                      technology, experience how to do the real project with
+                      senior developers by testing their current project, and
+                      share more experience with them. enjoy more events and
+                      workshops.
                     </SwiperDescContent>
                   </SwiperInfo>
                   <SwiperWrapperImageAuthor>
@@ -182,9 +179,9 @@ const Banner = () => {
                 <SwiperDesc>
                   <SwiperInfo>
                     <SwiperImageWrapper>
-                      <SwiperImage/>
+                      <SwiperImage />
                     </SwiperImageWrapper>
-                    <SwiperDescContent>       
+                    <SwiperDescContent>
                       This is an awesome programme which supports me too much in
                       enhancing my skills and knowledge to become a developer. I
                       feel very lucky because of joining Devplus.
@@ -205,9 +202,9 @@ const Banner = () => {
                 <SwiperDesc>
                   <SwiperInfo>
                     <SwiperImageWrapper>
-                      <SwiperImage/>
+                      <SwiperImage />
                     </SwiperImageWrapper>
-                    <SwiperDescContent>  
+                    <SwiperDescContent>
                       I learnt a lot of knowledge from experienced seniors of
                       Dev plus. They help me to understand the procedure in
                       running a real project. Additionally, taking part in
@@ -232,4 +229,3 @@ const Banner = () => {
 };
 
 export default Banner;
-

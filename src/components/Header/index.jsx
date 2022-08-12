@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
+import { lazy } from "react";
 import { Button, Col, Container, Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/logo.webp";
 import { WHITE, BLUE, BLACK } from "../../constants/colors";
-import Sidebar from "../Sidebar";
+// import Sidebar from "../Sidebar";
 import SubMenu from "./SubMenu";
 
 const HeaderContainer = styled.header`
@@ -20,6 +21,7 @@ const NavbarStyled = styled(Navbar)`
 `;
 
 const LogoImg = styled.img`
+  width: 200px;
   max-height: 36px;
 `;
 
@@ -103,14 +105,13 @@ const HamburgerSpan = styled.span`
   transition: all ease 0.3s;
 `;
 
+const Sidebar = lazy(() => import("../Sidebar"));
+
 const Header = () => {
   const [show, setShow] = useState(false);
-  const [hover, setHover] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  console.log(hover);
 
   return (
     <HeaderContainer>
@@ -118,7 +119,7 @@ const Header = () => {
         <Container>
           <Col lg={2}>
             <Navbar.Brand href="#home">
-              <LogoImg src={Logo} alt="Logo Image" />
+              <LogoImg loading="lazy" src={Logo} alt="Logo Image" />
             </Navbar.Brand>
           </Col>
           <NavbarToggle aria-controls="basic-navbar-nav" />
@@ -126,11 +127,7 @@ const Header = () => {
             <NavMenu className="me-auto align-items-start">
               <NavLink href="#home">HOME</NavLink>
               <NavLink href="#about">ABOUT DEVPLUS</NavLink>
-              <NavLinkDrop
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
-                href="#programme"
-              >
+              <NavLinkDrop href="#programme">
                 OUR PROGRAMME
                 <SubMenu />
               </NavLinkDrop>
@@ -151,7 +148,9 @@ const Header = () => {
         </Container>
       </NavbarStyled>
 
-      <Sidebar show={show} onHide={handleClose} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Sidebar show={show} onHide={handleClose} />
+      </Suspense>
     </HeaderContainer>
   );
 };

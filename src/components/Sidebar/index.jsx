@@ -1,7 +1,7 @@
 import React from "react";
 import { Offcanvas } from "react-bootstrap";
 import styled from "styled-components";
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/logo.webp";
 import ImageGallery from "./ImageGallery";
 import Map from "./Map";
 import SocialIcon from "./SocialIcon";

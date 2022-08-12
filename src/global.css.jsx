@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { TitleFont } from "./constants/fonts";
 
 export default createGlobalStyle`
   html,
@@ -40,6 +41,12 @@ export default createGlobalStyle`
     width: 40px;
     height: 10px;
     border-radius: 30px;
+  }
+
+  h2 {
+    font-family: ${TitleFont};
+    font-display: swap;
+    font-weight: 700;
   }
 
   /* Animation keyframes */

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MapImage from "../../assets/images/map.png";
+import MapImage from "../../assets/images/map.webp";
 
 const Container = styled.div`
   width: 100%;
