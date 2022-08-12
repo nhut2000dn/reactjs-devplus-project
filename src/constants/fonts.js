@@ -1,0 +1,1 @@
+export const TitleFont = "'Nunito', sans-serif";
