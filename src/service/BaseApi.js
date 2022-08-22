@@ -14,3 +14,7 @@ const client = axios.create({
 export const getBanner = async () => {
     return await client.get("/banner");
 }
+
+export const getAbout = async () => {
+  return await client.get("/about");
+}
