@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 import { TitleFont } from "../../constants/fonts";
-import img from "../../assets/images/devplus_missions.webp";
 import { mobile, ipad, desktops } from "../../responsive";
+import { useState, useEffect } from 'react';
+import { getBanner } from '../../service/BaseApi';
 
 const BannerContainer = styled.div`
   padding: 125px 0 425px;
-  background: url(${img});
+  background: url(${(props) => props.urlImage});
   background-size: cover;
   background-position: center;
 `;
@@ -88,18 +89,28 @@ const BannerButtonWrap = styled.div`
 `;
 
 const Banner = () => {
+
+  const [banner, setBanner] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getBanner();
+      setBanner(data.data[0]);
+    }
+
+    fetchData()
+      .catch(console.error);;
+  }, []);
+
   return (
-    <BannerContainer>
+    <BannerContainer urlImage={banner.image}>
       <Container className="container">
         <BannerContent className="text-center">
           <BannerTitle>
-            Devplus will support the early stage developers go the right career
-            path
+            { banner.title }
           </BannerTitle>
           <BannerDesc>
-            Devplus is not a training center, it’s battle campus for you to
-            level up your skillsets and ready to onboard any projects in our
-            “kindest” companies listing
+            { banner.desc }
           </BannerDesc>
           <BannerButtonWrap>
             <BannerButton>Learn more</BannerButton>
