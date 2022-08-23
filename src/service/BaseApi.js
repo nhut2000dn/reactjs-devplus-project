@@ -22,3 +22,7 @@ export const getBanner = async () => {
 export const getAbout = async () => {
   return await client.get("/about");
 }
+
+export const getConcern = async () => {
+  return await client.get("/concern");
+}
