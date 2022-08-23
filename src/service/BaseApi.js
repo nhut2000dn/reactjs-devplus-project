@@ -11,6 +11,10 @@ const client = axios.create({
     },
   });
   
+export const getSidebar = async () => {
+    return await client.get("/sidebar");
+}
+
 export const getBanner = async () => {
     return await client.get("/banner");
 }
