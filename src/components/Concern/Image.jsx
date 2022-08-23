@@ -3,7 +3,6 @@ import styled from "styled-components";
 import ReactPlayer from "react-player/lazy";
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-import VideoImg from "../../assets/images/video.webp";
 import { BLUE } from "../../constants/colors";
 import LazyLoad from "react-lazyload";
 
@@ -45,7 +44,7 @@ const Button = styled.button`
   }
 `;
 
-const Image = () => {
+const Image = (props) => {
   const [open, setOpen] = useState(false);
 
   const toggleModal = () => {
@@ -55,7 +54,7 @@ const Image = () => {
   return (
     <>
       <Wrapper>
-        <Img loading="lazy" src={VideoImg} alt="Video image" />
+        <Img loading="lazy" src={props.videoImg} alt="Video image" />
         <Button onClick={toggleModal} />
       </Wrapper>
       <LazyLoad>
@@ -77,7 +76,7 @@ const Image = () => {
           center
         >
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=mUjhiT0zSKI&feature=emb_logo&ab_channel=Devplus"
+            url={props.urlVideo}
             width="800px"
             height="510px"
           />
