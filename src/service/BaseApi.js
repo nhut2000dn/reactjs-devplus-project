@@ -26,3 +26,7 @@ export const getAbout = async () => {
 export const getConcern = async () => {
   return await client.get("/concern");
 }
+
+export const getTestimonial = async () => {
+  return await client.get("/testimonial");
+}
