@@ -103,21 +103,26 @@ const Banner = () => {
   }, []);
 
   return (
-    <BannerContainer urlImage={banner.image}>
-      <Container className="container">
-        <BannerContent className="text-center">
-          <BannerTitle>
-            { banner.title }
-          </BannerTitle>
-          <BannerDesc>
-            { banner.desc }
-          </BannerDesc>
-          <BannerButtonWrap>
-            <BannerButton>Learn more</BannerButton>
-          </BannerButtonWrap>
-        </BannerContent>
-      </Container>
-    </BannerContainer>
+    <>
+      {
+        Object.keys(banner).length > 0 ?
+        <BannerContainer urlImage={banner.image}>
+          <Container className="container">
+            <BannerContent className="text-center">
+              <BannerTitle>
+                { banner.title }
+              </BannerTitle>
+              <BannerDesc>
+                { banner.desc }
+              </BannerDesc>
+              <BannerButtonWrap>
+                <BannerButton>Learn more</BannerButton>
+              </BannerButtonWrap>
+            </BannerContent>
+          </Container>
+        </BannerContainer> : <></>
+      }
+    </>
   );
 };
 

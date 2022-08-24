@@ -43,26 +43,31 @@ const Sidebar = ({ show, onHide }) => {
   }, []);
 
   return (
-    <OffcanvasStyled show={show} onHide={onHide} placement="end">
-      <Offcanvas.Header closeButton>
-        <Offcanvas.Title></Offcanvas.Title>
-      </Offcanvas.Header>
-      <Offcanvas.Body>
-        <LogoImg>
-          <Img src={sidebar.logoImg } alt="Logo" />
-        </LogoImg>
-        <Desc>
-          <span>
-            { sidebar.desc }
-          </span>
-        </Desc>
-        <Gallery>
-          <ImageGallery urlImages={ sidebar.gallery } />
-        </Gallery>
-        <Map urlMapImage={ sidebar.mapImg } />
-        <SocialIcon iconSocialText={ sidebar.socialIcon } />
-      </Offcanvas.Body>
-    </OffcanvasStyled>
+    <>
+      {
+        Object.keys(sidebar).length > 0 ?
+        <OffcanvasStyled show={show} onHide={onHide} placement="end">
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title></Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <LogoImg>
+              <Img src={sidebar.logoImg } alt="Logo" />
+            </LogoImg>
+            <Desc>
+              <span>
+                { sidebar.desc }
+              </span>
+            </Desc>
+            <Gallery>
+              <ImageGallery urlImages={ sidebar.gallery } />
+            </Gallery>
+            <Map urlMapImage={ sidebar.mapImg } />
+            <SocialIcon iconSocialText={ sidebar.socialIcon } />
+          </Offcanvas.Body>
+        </OffcanvasStyled> : <></>
+      }
+    </>
   );
 };
 
