@@ -30,18 +30,23 @@ const Concern = () => {
   }, []);
 
   return (
-    <Wrapper>
-      <Container>
-        <Row>
-          <ColStyled lg={6}>
-            <Questions headingTitle={concern.heading} concernsQuestions={concern.concerns} />
-          </ColStyled>
-          <ColStyled lg={6}>
-            <Image videoImg={concern.img} urlVideo={concern.video} />
-          </ColStyled>
-        </Row>
-      </Container>
-    </Wrapper>
+    <>
+      {
+        concern.concerns.length ? 
+          <Wrapper>
+            <Container>
+              <Row>
+                <ColStyled lg={6}>
+                  <Questions headingTitle={concern.heading} concernsQuestions={concern.concerns} />
+                </ColStyled>
+                <ColStyled lg={6}>
+                  <Image videoImg={concern.img} urlVideo={concern.video} />
+                </ColStyled>
+              </Row>
+            </Container>
+          </Wrapper> : <div></div>
+      }
+    </>
   );
 };
 
