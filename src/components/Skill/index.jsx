@@ -30,43 +30,46 @@ const Skill = () => {
 
   return (
     <>
-      <ContainerSkill>
-        <Container>
-          <RowDiv>
-            <ColRow className="col-md-12">
-              <DivTitle>
-                <h2 className="title mb-0">
-                  { skill.heading }
-                </h2>
-              </DivTitle>
-            </ColRow>
-          </RowDiv>
-          <RowContent className="row ">
-            {
-              skill.container.map((item, index) => {
-                return ( 
-                  <ColItem key={index} className="col-lg-4 col-md-6 mb-30 wow fadeInUp col-item">
-                    <NavLink className="categories-item">
-                      <DivIcon className="icon">
-                        <ImgIcon
-                          loading="lazy"
-                          alt="icon"
-                          src={item.image}
-                          className="img"
-                        ></ImgIcon>
-                      </DivIcon>
-                      <DivContent>
-                        <h4 className="title">{item.title}</h4>
-                        <span className="courses">{item.desc}</span>
-                      </DivContent>
-                    </NavLink>
-                  </ColItem>
-                );
-              })
-            }
-          </RowContent>
-        </Container>
-      </ContainerSkill>
+      {
+        Object.keys(skill).length > 0 ?
+        <ContainerSkill>
+          <Container>
+            <RowDiv>
+              <ColRow className="col-md-12">
+                <DivTitle>
+                  <h2 className="title mb-0">
+                    { skill.heading }
+                  </h2>
+                </DivTitle>
+              </ColRow>
+            </RowDiv>
+            <RowContent className="row ">
+              {
+                skill.container.map((item, index) => {
+                  return ( 
+                    <ColItem key={index} className="col-lg-4 col-md-6 mb-30 wow fadeInUp col-item">
+                      <NavLink className="categories-item">
+                        <DivIcon className="icon">
+                          <ImgIcon
+                            loading="lazy"
+                            alt="icon"
+                            src={item.image}
+                            className="img"
+                          ></ImgIcon>
+                        </DivIcon>
+                        <DivContent>
+                          <h4 className="title">{item.title}</h4>
+                          <span className="courses">{item.desc}</span>
+                        </DivContent>
+                      </NavLink>
+                    </ColItem>
+                  );
+                })
+              }
+            </RowContent>
+          </Container>
+        </ContainerSkill> : <></>
+      }
     </>
   );
 };

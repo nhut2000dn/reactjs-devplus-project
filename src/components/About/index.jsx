@@ -117,27 +117,32 @@ const About = () => {
   }, []);
 
   return (
-    <AboutContainer>
-      <Container className="container d-lg-flex">
-        <NoticeBoard>
-          <ContainerBoard>
-            <Title>{ about.titleBoard }</Title>
-            <ListBoardRoad itemsBoard={ about.itemsBoard } />
-          </ContainerBoard>
-        </NoticeBoard>
-        <AboutPart>
-          <SectionAbout>
-            <SubTitle>{ about.subTitleAbout }</SubTitle>
-            <TitleAbout>
-              { about.titleAbout }
-            </TitleAbout>
-            <DescAbout>
-              { about.descAbout }
-            </DescAbout>
-          </SectionAbout>
-        </AboutPart>
-      </Container>
-    </AboutContainer>
+    <>
+      {
+        Object.keys(about).length > 0 ?
+        <AboutContainer>
+          <Container className="container d-lg-flex">
+            <NoticeBoard>
+              <ContainerBoard>
+                <Title>{ about.titleBoard }</Title>
+                <ListBoardRoad itemsBoard={ about.itemsBoard } />
+              </ContainerBoard>
+            </NoticeBoard>
+            <AboutPart>
+              <SectionAbout>
+                <SubTitle>{ about.subTitleAbout }</SubTitle>
+                <TitleAbout>
+                  { about.titleAbout }
+                </TitleAbout>
+                <DescAbout>
+                  { about.descAbout }
+                </DescAbout>
+              </SectionAbout>
+            </AboutPart>
+          </Container>
+        </AboutContainer> : <></>
+      }
+    </>
   );
 };
 

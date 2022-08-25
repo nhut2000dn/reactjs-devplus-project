@@ -41,12 +41,17 @@ const Banner = () => {
   }, []);
 
   return (
-    <TestimonialWrapper>
-      <TestimonialContainer className="container">
-        <TestimonialHeading>{ testimonial.heading }</TestimonialHeading>
-        <SwiperContainer testimonials={ testimonial.testimonials }/>
-      </TestimonialContainer>
-    </TestimonialWrapper>
+    <>
+      {
+        Object.keys(testimonial).length > 0 ?
+        <TestimonialWrapper>
+          <TestimonialContainer className="container">
+            <TestimonialHeading>{ testimonial.heading }</TestimonialHeading>
+            <SwiperContainer testimonials={ testimonial.testimonials }/>
+          </TestimonialContainer>
+        </TestimonialWrapper> : <></>
+      }
+    </>
   );
 };
 
