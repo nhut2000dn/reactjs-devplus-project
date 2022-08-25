@@ -31,6 +31,14 @@ export const getTestimonial = async () => {
   return await client.get("/testimonial");
 }
 
+export const getAdmission = async () => {
+  return await client.get("/admission");
+}
+
+export const getCampus = async () => {
+  return await client.get("/campus");
+}
+
 export const getSkill = async () => {
   return await client.get("/skill");
 }
