@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import admission from "../../assets/images/admission.webp";
+import { useState, useEffect } from 'react';
+import { getAdmission } from '../../service/BaseApi';
 
 const AdmissionWrapper = styled.div`
   padding: 70px 0 0;
@@ -63,32 +64,39 @@ const BtApply = styled.button`
 `;
 
 const Admission = () => {
+
+  const [admission, setAdmission] = useState({items: []});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getAdmission();
+      setAdmission(data.data[0]);
+    }
+
+    fetchData()
+      .catch(console.error);;
+  }, []);
+
   return (
-    <AdmissionWrapper>
-      <Row className="row">
-        <Col className="col-lg-6 left">
-          <ImageLeft loading="lazy" src={admission} />
-        </Col>
-        <Col className="col-lg-6 right">
-          <AdmissionTitle> Admission for 2021 </AdmissionTitle>
-          <AdmissionContent>
-            <AdmissionDes>
-              Disclaimer: This position is expected to start around Feb 2022 and
-              continue through the entire Summer term. We ask for a minimum of
-              12 weeks, full-time, for most internships. Please consider before
-              submitting an application.
-            </AdmissionDes>
-            <AdmissionDes>
-              Devplus aims to provide students the chance to work with our
-              clients and awesome mentors to level up your programing skillset
-              in the RIGHT path. With your education and experience, you will be
-              able to take on real-world challenges from day one.
-            </AdmissionDes>
-            <BtApply className="bt-apply mb-4">APPLY NOW</BtApply>
-          </AdmissionContent>
-        </Col>
-      </Row>
-    </AdmissionWrapper>
+   <>
+      {
+        Object.keys(admission).length > 0 ?
+        <AdmissionWrapper>
+          <Row className="row">
+            <Col className="col-lg-6 left">
+              <ImageLeft loading="lazy" src={admission.image} />
+            </Col>
+            <Col className="col-lg-6 right">
+              <AdmissionTitle>Admission for 2021</AdmissionTitle>
+              <AdmissionContent>
+                <AdmissionDes>{admission.desc}</AdmissionDes>
+                <BtApply className="bt-apply mb-4">APPLY NOW</BtApply>
+              </AdmissionContent>
+            </Col>
+          </Row>
+        </AdmissionWrapper> : <></>
+      }
+    </>
   );
 };
 
