@@ -65,12 +65,12 @@ const BtApply = styled.button`
 
 const Admission = () => {
 
-  const [admission, setAdmission] = useState({items: []});
+  const [admission, setAdmission] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getAdmission();
-      setAdmission(data.data[0]);
+      const res = await getAdmission();
+      res.data[0] && setAdmission(res.data[0]);
     }
 
     fetchData()

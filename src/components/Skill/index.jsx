@@ -16,12 +16,12 @@ import {
 } from "../../components/Skill/index.styled";
 const Skill = () => {
 
-  const [skill, setSkill] = useState({container: []});
+  const [skill, setSkill] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getSkill();
-      setSkill(data.data[0]);
+      const res = await getSkill();
+      res.data[0] && setSkill(res.data[0]);
     }
 
     fetchData()

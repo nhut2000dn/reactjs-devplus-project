@@ -21,8 +21,8 @@ const Concern = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getConcern();
-      setConcern(data.data[0]);
+      const res = await getConcern();
+      res.data[0] && setConcern(res.data[0]);
     }
 
     fetchData()
