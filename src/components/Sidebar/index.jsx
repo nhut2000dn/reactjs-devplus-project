@@ -30,12 +30,12 @@ const Gallery = styled.div``;
 
 const Sidebar = ({ show, onHide }) => {
 
-  const [sidebar, setSidebar] = useState({mapImg: []});
+  const [sidebar, setSidebar] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getSidebar();
-      setSidebar(data.data[0]);
+      const res = await getSidebar();
+      res.data[0] && setSidebar(res.data[0]);
     }
 
     fetchData()

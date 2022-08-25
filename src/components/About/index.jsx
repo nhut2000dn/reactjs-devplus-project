@@ -104,12 +104,12 @@ const DescAbout = styled.div`
 
 const About = () => {
 
-  const [about, setAbout] = useState({itemsBoard: []});
+  const [about, setAbout] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getAbout();
-      setAbout(data.data[0]);
+      const res = await getAbout();
+      res.data[0] && setAbout(res.data[0]);
     }
 
     fetchData()

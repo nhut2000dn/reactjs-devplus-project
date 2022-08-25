@@ -32,12 +32,12 @@ const CampusTitle = styled.h3`
   color: #111111;
 `;
 const Campus = () => {
-  const [campus, setCampus] = useState({items: []});
+  const [campus, setCampus] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getCampus();
-      setCampus(data.data[0]);
+      const res = await getCampus();
+      res.data[0] && setCampus(res.data[0]);
     }
 
     fetchData()

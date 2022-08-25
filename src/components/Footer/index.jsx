@@ -26,8 +26,8 @@ const Footer = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getFooter();
-      setFooter(data.data[0]);
+      const res = await getFooter();
+      res.data[0] && setFooter(res.data[0]);
     }
 
     fetchData()

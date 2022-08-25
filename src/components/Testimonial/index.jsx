@@ -32,8 +32,8 @@ const Banner = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getTestimonial();
-      setTestimonial(data.data[0]);
+      const res = await getTestimonial();
+      res.data[0] && setTestimonial(res.data[0]);
     }
 
     fetchData()

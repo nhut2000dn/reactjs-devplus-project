@@ -94,8 +94,8 @@ const Banner = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getBanner();
-      setBanner(data.data[0]);
+      const res = await getBanner();
+      res.data[0] && setBanner(res.data[0]);
     }
 
     fetchData()
