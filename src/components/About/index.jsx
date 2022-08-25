@@ -124,13 +124,13 @@ const About = () => {
           <Container className="container d-lg-flex">
             <NoticeBoard>
               <ContainerBoard>
-                <Title>{ about.titleBoard }</Title>
+                <Title>ROAD TO BE A DEVPLUS</Title>
                 <ListBoardRoad itemsBoard={ about.itemsBoard } />
               </ContainerBoard>
             </NoticeBoard>
             <AboutPart>
               <SectionAbout>
-                <SubTitle>{ about.subTitleAbout }</SubTitle>
+                <SubTitle>ABOUT DEVPLUS</SubTitle>
                 <TitleAbout>
                   { about.titleAbout }
                 </TitleAbout>

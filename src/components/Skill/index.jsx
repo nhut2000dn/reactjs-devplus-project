@@ -38,7 +38,7 @@ const Skill = () => {
               <ColRow className="col-md-12">
                 <DivTitle>
                   <h2 className="title mb-0">
-                    { skill.heading }
+                    What an engineer after Devplus will must have?
                   </h2>
                 </DivTitle>
               </ColRow>
