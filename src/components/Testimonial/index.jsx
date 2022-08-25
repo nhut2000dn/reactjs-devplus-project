@@ -46,7 +46,7 @@ const Banner = () => {
         Object.keys(testimonial).length > 0 ?
         <TestimonialWrapper>
           <TestimonialContainer className="container">
-            <TestimonialHeading>{ testimonial.heading }</TestimonialHeading>
+            <TestimonialHeading>What alumni saying</TestimonialHeading>
             <SwiperContainer testimonials={ testimonial.testimonials }/>
           </TestimonialContainer>
         </TestimonialWrapper> : <></>

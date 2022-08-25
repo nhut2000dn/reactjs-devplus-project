@@ -67,7 +67,7 @@ const Questions = (props) => {
   return (
     <Wrapper>
       <Title>
-        <h2>{ props.headingTitle }</h2>
+        <h2>Some common concerns</h2>
       </Title>
       <Accordion defaultActiveKey={0}>
         {
