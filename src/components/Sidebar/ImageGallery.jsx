@@ -20,9 +20,14 @@ const ImageGallery = (props) => {
   }, [props]);
 
   return (
-    <LazyLoad>
-      <Gallery rowHeight={140} margin={4} images={images} />
-    </LazyLoad>
+    <>
+      {
+        images.length > 0 ? 
+        <LazyLoad>
+          <Gallery rowHeight={140} margin={4} images={images} />
+        </LazyLoad> : <></>
+      }
+    </>
   );
 };
 
