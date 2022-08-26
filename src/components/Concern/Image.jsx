@@ -52,7 +52,7 @@ const Image = (props) => {
   return (
     <>
       <Wrapper>
-        <Img loading="lazy" src={props.VideoImg} alt="Video image" />
+        <Img loading="lazy" src={props.videoImg} alt="Video image" />
         <Button onClick={toggleModal} />
       </Wrapper>
       <ModalVideo
