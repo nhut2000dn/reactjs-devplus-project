@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import MapImage from "../../assets/images/map.png";
 
 const Container = styled.div`
   width: 100%;
@@ -13,10 +12,10 @@ const Container = styled.div`
 
 const Img = styled.img``;
 
-const Map = () => {
+const Map = (props) => {
   return (
     <Container>
-      <Img src={MapImage} alt="Map Image" />
+      <Img src={props.urlMapImage} alt="Map Image" />
     </Container>
   );
 };

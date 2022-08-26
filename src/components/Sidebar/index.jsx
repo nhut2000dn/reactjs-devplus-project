@@ -1,10 +1,11 @@
 import React from "react";
 import { Offcanvas } from "react-bootstrap";
 import styled from "styled-components";
-import Logo from "../../assets/images/logo.png";
 import ImageGallery from "./ImageGallery";
 import Map from "./Map";
 import SocialIcon from "./SocialIcon";
+import { useState, useEffect } from 'react';
+import { getSidebar } from '../../service/BaseApi';
 
 const OffcanvasStyled = styled(Offcanvas)`
   width: 500px !important;
@@ -28,28 +29,45 @@ const Desc = styled.div`
 const Gallery = styled.div``;
 
 const Sidebar = ({ show, onHide }) => {
+
+  const [sidebar, setSidebar] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await getSidebar();
+      res.data[0] && setSidebar(res.data[0]);
+    }
+
+    fetchData()
+      .catch(console.error);;
+  }, []);
+
   return (
-    <OffcanvasStyled show={show} onHide={onHide} placement="end">
-      <Offcanvas.Header closeButton>
-        <Offcanvas.Title></Offcanvas.Title>
-      </Offcanvas.Header>
-      <Offcanvas.Body>
-        <LogoImg>
-          <Img src={Logo} alt="Logo" />
-        </LogoImg>
-        <Desc>
-          <span>
-            Devplus's mission is filling the gap between school and corporate,
-            reduce in-house training cost and effort for IT companies.
-          </span>
-        </Desc>
-        <Gallery>
-          <ImageGallery />
-        </Gallery>
-        <Map />
-        <SocialIcon />
-      </Offcanvas.Body>
-    </OffcanvasStyled>
+    <>
+      {
+        Object.keys(sidebar).length > 0 ?
+        <OffcanvasStyled show={show} onHide={onHide} placement="end">
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title></Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <LogoImg>
+              <Img src={sidebar.logoImg } alt="Logo" />
+            </LogoImg>
+            <Desc>
+              <span>
+                { sidebar.desc }
+              </span>
+            </Desc>
+            <Gallery>
+              <ImageGallery urlImages={ sidebar.gallery } />
+            </Gallery>
+            <Map urlMapImage={ sidebar.mapImg } />
+            <SocialIcon iconSocialText={ sidebar.socialIcon } />
+          </Offcanvas.Body>
+        </OffcanvasStyled> : <></>
+      }
+    </>
   );
 };
 

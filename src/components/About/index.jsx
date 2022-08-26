@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { TitleFont } from "../../constants/fonts";
 import { BLUE } from "../../constants/colors";
 import { laptop } from "../../responsive";
+import ListBoardRoad from "./listBoard";
+import { useState, useEffect } from 'react';
+import { getAbout } from '../../service/BaseApi';
 
 const AboutContainer = styled.div`
   padding-bottom: 100px;
@@ -44,43 +47,6 @@ const ContainerBoard = styled.div`
   ${laptop({
     marginTop: '0',
   })}
-`;
-
-const Item = styled.li``;
-
-const Order = styled.div`
-  border-right: 1px solid  ${BLUE};
-  font-family: ${TitleFont};
-  transform: translateY(-50%);
-  color: ${BLUE};
-  padding: 0 33px 0 0;
-  position: absolute;
-  font-weight: 600;
-  font-size: 22px;
-  left: 33px;
-  top: 50%;
-`;
-
-const Content = styled.div`
-  font-weight: 600;
-  font-size: 15px;
-  color: #505050;
-  padding-left: 95px;
-`;
-
-const ListBoard = styled.ul`
-  ${Item} {
-    position: relative;
-    background: #e7f4f6;
-    margin-bottom: 12px;
-    border-radius: 3px;
-    padding: 22px;
-    padding-left: 0 !important;
-    animation-name: fadeInUp;
-    visibility: visible;
-    animation-duration: 3000ms;
-    animation-delay: 900ms;
-  }
 `;
 
 const AboutPart = styled.article`
@@ -137,53 +103,46 @@ const DescAbout = styled.div`
 `;
 
 const About = () => {
+
+  const [about, setAbout] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await getAbout();
+      res.data[0] && setAbout(res.data[0]);
+    }
+
+    fetchData()
+      .catch(console.error);;
+  }, []);
+
   return (
-    <AboutContainer>
-      <Container className="container d-lg-flex">
-        <NoticeBoard>
-          <ContainerBoard>
-            <Title>Road to be a devplus</Title>
-            <ListBoard>
-              <Item>
-                <Order>1</Order>
-                <Content>Apply Devplus</Content>
-              </Item>
-              <Item>
-                <Order>2</Order>
-                <Content>Testing and Interview</Content>
-              </Item>
-              <Item>
-                <Order>3</Order>
-                <Content>1st plus (+) campus</Content>
-              </Item>
-              <Item>
-                <Order>4</Order>
-                <Content>2nd plus (++) campus</Content>
-              </Item>
-              <Item>
-                <Order>5</Order>
-                <Content>Onboard & start your career</Content>
-              </Item>
-            </ListBoard>
-          </ContainerBoard>
-        </NoticeBoard>
-        <AboutPart>
-          <SectionAbout>
-            <SubTitle>About Devplus</SubTitle>
-            <TitleAbout>
-              The Fact: Skilled labour shortage for software companies but
-              full of freshers and low level juniors
-            </TitleAbout>
-            <DescAbout>
-								Our responsibility is filling the gap between the quality of
-								graduate students and the quality of engineers. Devplus will
-								help reducing the cost of re-training and accelerating the
-								skill-up progress of students and freshers.
-            </DescAbout>
-          </SectionAbout>
-        </AboutPart>
-      </Container>
-    </AboutContainer>
+    <>
+      {
+        Object.keys(about).length > 0 ?
+        <AboutContainer>
+          <Container className="container d-lg-flex">
+            <NoticeBoard>
+              <ContainerBoard>
+                <Title>ROAD TO BE A DEVPLUS</Title>
+                <ListBoardRoad itemsBoard={ about.itemsBoard } />
+              </ContainerBoard>
+            </NoticeBoard>
+            <AboutPart>
+              <SectionAbout>
+                <SubTitle>ABOUT DEVPLUS</SubTitle>
+                <TitleAbout>
+                  { about.titleAbout }
+                </TitleAbout>
+                <DescAbout>
+                  { about.descAbout }
+                </DescAbout>
+              </SectionAbout>
+            </AboutPart>
+          </Container>
+        </AboutContainer> : <></>
+      }
+    </>
   );
 };
 
