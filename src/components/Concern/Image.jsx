@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import ReactPlayer from "react-player/lazy";
-import Modal from "react-responsive-modal";
-import "react-responsive-modal/styles.css";
 import { BLUE } from "../../constants/colors";
-import LazyLoad from "react-lazyload";
+import ModalVideo from "react-modal-video";
+import "react-modal-video/scss/modal-video.scss";
 
 const Wrapper = styled.div`
   position: relative;
@@ -54,34 +52,15 @@ const Image = (props) => {
   return (
     <>
       <Wrapper>
-        <Img loading="lazy" src={props.videoImg} alt="Video image" />
+        <Img loading="lazy" src={props.VideoImg} alt="Video image" />
         <Button onClick={toggleModal} />
       </Wrapper>
-      <LazyLoad>
-        <Modal
-          open={open}
-          onClose={toggleModal}
-          styles={{
-            modal: {
-              padding: 0,
-              overflow: "hidden",
-            },
-            overlay: {
-              background: "rgba(0, 0, 0, 0.8)",
-            },
-            closeButton: {
-              background: "#fafafa",
-            },
-          }}
-          center
-        >
-          <ReactPlayer
-            url={props.urlVideo}
-            width="800px"
-            height="510px"
-          />
-        </Modal>
-      </LazyLoad>
+      <ModalVideo
+        channel="youtube"
+        isOpen={open}
+        videoId={props.urlVideo}
+        onClose={toggleModal}
+      />
     </>
   );
 };
