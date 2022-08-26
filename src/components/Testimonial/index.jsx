@@ -28,7 +28,7 @@ const TestimonialHeading = styled.h2`
 
 const Banner = () => {
 
-  const [testimonial, setTestimonial] = useState({testimonials: []});
+  const [testimonial, setTestimonial] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {

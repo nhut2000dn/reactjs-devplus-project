@@ -67,6 +67,8 @@ const SwiperImageAuthor = styled.img.attrs((props) => ({
   src: `${props.url}`,
 }))`
   border-radius: 50%;
+  width: 70px;
+  height: 70px;
 `;
 
 const SwiperAuthor = styled.div`
