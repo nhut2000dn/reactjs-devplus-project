@@ -44,7 +44,7 @@ const Concern = () => {
                 </ColStyled>
               </Row>
             </Container>
-          </Wrapper> : <div></div>
+          </Wrapper> : <></>
       }
     </>
   );
