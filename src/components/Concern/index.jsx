@@ -17,7 +17,7 @@ const ColStyled = styled(Col)`
 
 const Concern = () => {
 
-  const [concern, setConcern] = useState({concerns: []});
+  const [concern, setConcern] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +32,7 @@ const Concern = () => {
   return (
     <>
       {
-        concern.concerns.length ? 
+        Object.keys(concern).length > 0 ?
           <Wrapper>
             <Container>
               <Row>

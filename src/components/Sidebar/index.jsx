@@ -42,7 +42,8 @@ const Sidebar = ({ show, onHide }) => {
 
   return (
     <>
-      {sidebar && (
+      {
+        Object.keys(sidebar).length > 0 ?
         <OffcanvasStyled show={show} onHide={onHide} placement="end">
           <Offcanvas.Header closeButton>
             <Offcanvas.Title></Offcanvas.Title>
@@ -60,8 +61,8 @@ const Sidebar = ({ show, onHide }) => {
             <Map urlMapImage={sidebar.mapImg} />
             <SocialIcon iconSocialText={sidebar.socialIcon} />
           </Offcanvas.Body>
-        </OffcanvasStyled>
-      )}
+        </OffcanvasStyled> : <></>
+      }
     </>
   );
 };
