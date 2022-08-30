@@ -22,7 +22,7 @@ import { getFooter } from '../../service/BaseApi';
 
 const Footer = () => {
 
-  const [footer, setFooter] = useState({footerRow: []});
+  const [footer, setFooter] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +37,7 @@ const Footer = () => {
   return (
     <>
       {
-        footer.footerRow.length > 0 ?
+        Object.keys(footer).length > 0 ?
           <FooterContainer>
             <DivFooterTop>
               <DivContainer className="container">
@@ -45,7 +45,7 @@ const Footer = () => {
                 {
                     footer.footerRow.map((item, index) => {
                       return (
-                        <DivItem className="col-12 col-lg-3 padding-footer">
+                        <DivItem key={index} className="col-12 col-lg-3 padding-footer">
                           <H4Title>
                             { item.heading }
                           </H4Title>
@@ -53,7 +53,7 @@ const Footer = () => {
                             {
                               item.items.map((itemRow, indexRow) => {
                               return (
-                                <li className={ itemRow.icon === "" ? "color" : "" }>
+                                <li key={indexRow} className={ itemRow.icon === "" ? "color" : "" }>
                                   {
                                     itemRow.icon === "" ?
                                       <>
@@ -119,9 +119,7 @@ const Footer = () => {
                 </DivRowBottom>
               </DivBottomContainer>
             </DivBottom>
-          </FooterContainer> 
-          : 
-          <></>
+          </FooterContainer> : <></>
       }
     </>
   );
